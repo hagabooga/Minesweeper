@@ -1,0 +1,21 @@
+[gd_scene load_steps=4 format=3 uid="uid://d3qmdtpsmmhyi"]
+
+[ext_resource type="Texture2D" uid="uid://cxf8vvdu07yg0" path="res://Tile.png" id="1_7trw4"]
+[ext_resource type="Script" path="res://Tile.cs" id="3_3q0gq"]
+[ext_resource type="FontFile" uid="uid://c1rwi8jgwqcx3" path="res://Roboto-Regular.ttf" id="4_f6o0b"]
+
+[node name="TextureButton" type="TextureButton"]
+texture_normal = ExtResource("1_7trw4")
+script = ExtResource("3_3q0gq")
+
+[node name="Label" type="Label" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_fonts/font = ExtResource("4_f6o0b")
+text = "1"
+horizontal_alignment = 1
+vertical_alignment = 1

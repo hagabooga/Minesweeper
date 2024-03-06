@@ -1,0 +1,88 @@
+[gd_scene load_steps=8 format=3 uid="uid://cbg3d1m0shxfo"]
+
+[ext_resource type="Script" path="res://Minesweeper.cs" id="1_vuaet"]
+[ext_resource type="Texture2D" uid="uid://bw5lur5soo133" path="res://Bomb.png" id="2_kjcv6"]
+[ext_resource type="PackedScene" uid="uid://d3qmdtpsmmhyi" path="res://Tile.tscn" id="2_xfqaa"]
+[ext_resource type="Texture2D" uid="uid://bscpxecem2qre" path="res://Flag.png" id="3_n1ped"]
+[ext_resource type="FontFile" uid="uid://c1rwi8jgwqcx3" path="res://Roboto-Regular.ttf" id="4_kynik"]
+[ext_resource type="Texture2D" uid="uid://cxf8vvdu07yg0" path="res://Tile.png" id="4_mckmu"]
+[ext_resource type="Texture2D" uid="uid://bxpymvbwq1c8a" path="res://Revealed.png" id="5_moreg"]
+
+[node name="Minesweeper" type="CanvasLayer"]
+script = ExtResource("1_vuaet")
+numBombs = 10
+rows = 8
+cols = 10
+bombSprite = ExtResource("2_kjcv6")
+flagSprite = ExtResource("3_n1ped")
+tileSprite = ExtResource("4_mckmu")
+revealedSprite = ExtResource("5_moreg")
+tileScene = ExtResource("2_xfqaa")
+colors = Array[Color]([Color(0, 0, 1, 1), Color(0, 1, 0, 1), Color(1, 0, 0, 1), Color(1, 1, 0, 1), Color(1, 0, 1, 1), Color(0, 1, 1, 1), Color(1, 1, 1, 1), Color(0, 0, 0, 1)])
+metadata/_edit_lock_ = true
+
+[node name="Container" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="GridContainer" type="GridContainer" parent="Container"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/h_separation = 0
+theme_override_constants/v_separation = 0
+columns = 10
+
+[node name="Gameover" type="Control" parent="Container"]
+visible = false
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -9808.5
+offset_top = -6460.0
+offset_right = 9808.5
+offset_bottom = 6460.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Container" type="VBoxContainer" parent="Container/Gameover"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -168.5
+offset_top = -57.0
+offset_right = 168.5
+offset_bottom = 57.0
+grow_horizontal = 2
+grow_vertical = 2
+alignment = 1
+
+[node name="GameoverLabel" type="Label" parent="Container/Gameover/Container"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_colors/font_outline_color = Color(1, 1, 1, 1)
+theme_override_constants/outline_size = 10
+theme_override_fonts/font = ExtResource("4_kynik")
+theme_override_font_sizes/font_size = 64
+text = "GAMEOVER"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="StartOver" type="Button" parent="Container/Gameover/Container"]
+layout_mode = 2
+text = "Start over"
